@@ -1,5 +1,7 @@
-FROM node:12
-RUN https://github.com/sravanivya/Assignment3/tree/main/test-nodeapp-1-task
-RUN npm install
-RUN npm run build
-EXPOSE 8080
+FROM node:16
+WORKDIR /usr/src/app 
+COPY package*.json ./ 
+RUN npm install 
+COPY . . 
+EXPOSE 8081 
+CMD [ "node", "server.js" ]
